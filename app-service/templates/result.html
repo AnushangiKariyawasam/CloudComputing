@@ -22,11 +22,17 @@
 
         .container {
             background-color: #ffffff;
-            padding: 20px;
+            padding: 60px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            margin-top: 10px;
             flex: 1; /* Take remaining height */
+        }
+
+        .box-1 {
+            height: 500px;
+            width: 1000px;
+            align-items: center;
         }
 
         h1, h2 {
@@ -72,7 +78,7 @@
         </div>
 
         <div class="row mt-4 chart-container">
-            <div class="col-md-12">
+            <div class="col-md-12 box-1">
                 <h2>Average Time to Complete Issues</h2>
                 <canvas id="avgTimeChart"></canvas>
             </div>
