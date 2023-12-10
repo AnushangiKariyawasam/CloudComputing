@@ -11,10 +11,10 @@ def insert_metrics():
     issues = data.get('issues', [])
 
     # Azure SQL Server information
-    server = 'dwcw.database.windows.net'
-    database = 'DW'
-    username = 'ETL_USER'
-    password = 'DWH@123CW'
+    server = 'cloudcomputing-dbserver.database.windows.net'
+    database = 'CloudComputingCW'
+    username = 'dbadmin'
+    password = 'cloud@987'
 
     # Insert commits data into Azure SQL Server
     insert_commit_data_to_sql_server(commits, server, database, username, password)

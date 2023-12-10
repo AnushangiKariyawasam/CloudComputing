@@ -4,10 +4,10 @@ import pymssql
 app = Flask(__name__)
 
 # Azure SQL Server information
-server = 'dwcw.database.windows.net'
-database = 'DW'
-username = 'ETL_USER'
-password = 'DWH@123CW'
+server = 'cloudcomputing-dbserver.database.windows.net'
+database = 'CloudComputingCW'
+username = 'dbadmin'
+password = 'cloud@987'
 
 def execute_query(query):
     connection = pymssql.connect(server=server, user=username, password=password, database=database)
