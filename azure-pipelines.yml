@@ -18,7 +18,7 @@ steps:
       docker push cloudcomputingcontainer.azurecr.io/database-app:latest
       docker push cloudcomputingcontainer.azurecr.io/gui-app:latest
       docker push cloudcomputingcontainer.azurecr.io/metrics-app:latest
-      az aks browse --resource-group DW_CW --name iit-cloud
+      az aks browse --resource-group CloudComputing --name CloudComputingKCluster
 
 - task: Kubernetes@1
   inputs:
