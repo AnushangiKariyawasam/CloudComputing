@@ -35,3 +35,20 @@ steps:
     azureSubscriptionEndpointForSecrets: 'CloudComputing_AzurePortal'
     azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
     forceUpdate: false
+    
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'CloudComputing_AzurePortal'
+    azureResourceGroup: 'CloudComputing'
+    kubernetesCluster: 'CloudComputingKCluster'
+    namespace: 'default'
+    command: 'apply'
+    useConfigurationFile: true
+    configuration: 'k8_prod'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
+    azureSubscriptionEndpointForSecrets: 'CloudComputing_AzurePortal'
+    azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
+    forceUpdate: false
