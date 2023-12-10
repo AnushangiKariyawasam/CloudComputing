@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: metrics-app
-        image: iitcloud.azurecr.io/metrics-app:latest  # Replace with your Docker Hub username
+        image: cloudcomputingcontainer.azurecr.io/metrics-app:latest  # Replace with your Docker Hub username
         ports:
         - containerPort: 8000
         resources:

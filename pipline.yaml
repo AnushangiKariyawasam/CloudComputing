@@ -11,13 +11,13 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      docker build -t iitcloud.azurecr.io/database-app:latest database-service
-      docker build -t iitcloud.azurecr.io/gui-app:latest app-service
-      docker build -t iitcloud.azurecr.io/metrics-app:latest metrics-service
-      az acr login -n iitcloud
-      docker push iitcloud.azurecr.io/database-app:latest
-      docker push iitcloud.azurecr.io/gui-app:latest
-      docker push iitcloud.azurecr.io/metrics-app:latest
+      docker build -t cloudcomputingcontainer.azurecr.io/database-app:latest database-service
+      docker build -t cloudcomputingcontainer.azurecr.io/gui-app:latest app-service
+      docker build -t cloudcomputingcontainer.azurecr.io/metrics-app:latest metrics-service
+      az acr login -n cloudcomputingcontainer
+      docker push cloudcomputingcontainer.azurecr.io/database-app:latest
+      docker push cloudcomputingcontainer.azurecr.io/gui-app:latest
+      docker push cloudcomputingcontainer.azurecr.io/metrics-app:latest
       az aks browse --resource-group DW_CW --name iit-cloud
 - task: Kubernetes@1
   inputs:
@@ -32,7 +32,7 @@ steps:
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     azureSubscriptionEndpointForSecrets: 'Azure Portal'
-    azureContainerRegistry: 'iitcloud.azurecr.io'
+    azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
     forceUpdate: false
 - task: Kubernetes@1
   inputs:
@@ -47,5 +47,5 @@ steps:
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     azureSubscriptionEndpointForSecrets: 'Azure Portal'
-    azureContainerRegistry: 'iitcloud.azurecr.io'
+    azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
     forceUpdate: false

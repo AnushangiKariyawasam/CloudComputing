@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: gui-app-prod
-        image: iitcloud.azurecr.io/gui-app:latest  # Replace with your Docker Hub username
+        image: cloudcomputingcontainer.azurecr.io/gui-app:latest  # Replace with your Docker Hub username
         ports:
         - containerPort: 8003
         resources:
