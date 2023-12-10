@@ -13,6 +13,10 @@ docker build -t cal-app .
 docker run -p 8000:8000 cal-app
 
 
+
+-- //changes 
+
+
 minikube start
 minikube docker-env | Invoke-Expression
 kubectl delete deployment my-app-deployment
