@@ -4,7 +4,7 @@ metadata:
   name: gui-service-prod
 spec:
   selector:
-    app: gui-app-dev
+    app: gui-app-prod
   ports:
     - protocol: TCP
       port: 8003
