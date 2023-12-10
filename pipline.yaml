@@ -34,6 +34,7 @@ steps:
     azureSubscriptionEndpointForSecrets: 'Azure Portal'
     azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
     forceUpdate: false
+
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
