@@ -67,8 +67,8 @@ def parse_issue_data(issues_data, repo_owner, repo_name):
 
 
 # Schedule the job to run every hour
-#schedule.every().hour.do(job)
-schedule.every().minute.do(job)
+schedule.every().hour.do(job)
+#schedule.every().minute.do(job)
 # Run the scheduler in a separate thread
 def scheduler_thread():
     while True:
