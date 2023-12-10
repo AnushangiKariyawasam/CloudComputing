@@ -7,6 +7,8 @@ app = Flask(__name__)
 @app.route('/insert_metrics', methods=['POST'])
 def insert_metrics():
     data = request.get_json()
+    print('Hi')
+    print(data)
     commits = data.get('commits', [])
     issues = data.get('issues', [])
 
