@@ -65,11 +65,10 @@ stages:
         forceUpdate: false
 
 
-
-    - task: ManualIntervention@8
+    - task: ManualValidation@0
       inputs:
-        instructions: 'Please review and approve'
-        emailRecipients: 'fiverrkariyawasam@gmail.com'
+        notifyUsers: 'Please review and approve'
+        instructions: 'fiverrkariyawasam@gmail.com'
 
 
     - task: Kubernetes@1
