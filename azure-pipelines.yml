@@ -42,11 +42,33 @@ stages:
     - script: 'curl -sSf http://40.88.222.150:8002'
       displayName: 'Testing Application...'
       condition: succeededOrFailed()
+
 - stage: ProdDeployment
   dependsOn: DevAndTest
   jobs:
   - job: ProdDeploymentJob
     steps:
+    - task: Kubernetes@1
+      inputs:
+        connectionType: 'Azure Resource Manager'
+        azureSubscriptionEndpoint: 'CloudComputing_AzurePortal'
+        azureResourceGroup: 'CloudComputing'
+        kubernetesCluster: 'CloudComputingKCluster'
+        namespace: 'default'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: 'k8-prod'
+        secretType: 'dockerRegistry'
+        containerRegistryType: 'Azure Container Registry'
+        azureSubscriptionEndpointForSecrets: 'CloudComputing_AzurePortal'
+        azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
+        forceUpdate: false
+
+    - powershell: |
+        Write-Host "Waiting for manual approval..."
+        Start-Sleep -Seconds 300  # 5 minutes
+      displayName: 'Wait for Approval'
+
     - task: Kubernetes@1
       inputs:
         connectionType: 'Azure Resource Manager'
