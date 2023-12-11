@@ -64,10 +64,13 @@ stages:
         azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
         forceUpdate: false
 
-    - powershell: |
-        Write-Host "Waiting for manual approval..."
-        Start-Sleep -Seconds 300  # 5 minutes
-      displayName: 'Wait for Approval'
+
+
+    - task: ManualIntervention@8
+      inputs:
+        instructions: 'Please review and approve'
+        emailRecipients: 'fiverrkariyawasam@gmail.com'
+
 
     - task: Kubernetes@1
       inputs:
