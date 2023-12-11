@@ -64,12 +64,10 @@ stages:
         azureContainerRegistry: 'cloudcomputingcontainer.azurecr.io'
         forceUpdate: false
 
-
-    - task: ManualValidation@0
-      inputs:
-        notifyUsers: 'Please review and approve'
-        instructions: 'fiverrkariyawasam@gmail.com'
-
+    - powershell: |
+        Write-Host "Awaiting termination if necessary..."
+        Start-Sleep -Seconds 60  # 1 minute
+      displayName: 'Wait for Approval'
 
     - task: Kubernetes@1
       inputs:
